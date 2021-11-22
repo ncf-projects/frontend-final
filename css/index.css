@@ -1,0 +1,10 @@
+.container-fluid > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+.card {
+    max-width: 100%;
+    min-width: fit-content;
+}
