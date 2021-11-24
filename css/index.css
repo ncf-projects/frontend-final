@@ -8,3 +8,11 @@
     max-width: 100%;
     min-width: fit-content;
 }
+
+.form-control {
+    border-radius: 15px;
+}
+
+iframe {
+    overflow-x: auto;
+}
