@@ -16,3 +16,16 @@
 iframe {
     overflow-x: auto;
 }
+
+.underline {
+    text-decoration: underline;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    margin-right: auto;
+}

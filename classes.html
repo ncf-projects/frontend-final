@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/classes.css">
+    <link rel="stylesheet" href="css/globals.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -16,39 +17,145 @@
     <title>Class Listing</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <img src="./assets/banner.png" class="banner" alt="New College of Florida">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
+            aria-expanded="false" aria-label="Toggle navigation">Options</button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Class Schedule<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="classes.html">Course Listing<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="evaluations.html">Evaluations</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://myncf.ncf.edu">NCF Portal</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="jumbotron">
-        <h1 class="display-3">Jumbo heading</h1>
-        <div class="row">
-            <div class="selectionContainer">
-
+    <div class="mainContainer pt-5 mt-5 pb-5">
+        <div class="row operationRow d-flex justify-content-center">
+            <div class="selectionContainer text-center pt-3">
+                <div class="input">
+                    <h6 class="inline">Start Time:</h6>
+                    <input class="inline" id="startTime">
+                </div>
+                <div class="input">
+                    <h6 class="inline">End Time:</h6>
+                    <input class="inline" id="endTime">
+                </div>
+                <div class="input">
+                    <div class="w-fill text-center">
+                        <h6>Days:</h6>
+                        <div class="radioContainer">
+                            <div class="w-tight text-center text-short inline">
+                                M
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                T
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                W
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                R
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                F
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                S
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                            <div class="w-tight text-center text-short inline">
+                                U
+                                <br>
+                                <input class="checkbox" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="selectionContainer">
+            <div class="selectionContainer filterContainer pb-3 pt-3 text-center">
+                <h2>Filter:</h2>
+                <!-- Custom searchbar with suggestions popup -->
 
+                <form autocomplete="off" action="/js/classesAutocomplete.js">
+                    <div class="autocomplete w-fill">
+                        <input id="searchInput" type="text" name="courses" placeholder="Search Courses">
+                        <div class="autocompleteElements"></div>
+                    </div>
+                    <!-- <input type="submit"> -->
+                </form>
+                <!-- <div id="autocompleteMenu" class="autocompleteMenu">
+                    autocompleteMenu
+                </div> -->
             </div>
-            <div class="selectionContainer">
-
+            <div class="selectionContainer overflow-hidden pt-3 text-center">
+                <h4>Selected Filters:</h4>
+                <div class="filteritem border-black-top text-left pl-1">
+                    <h6 class="inline">h</h6>
+                    <svg xmlns="http://www.w3.org/2000/svg" tabindex="0" width="20" height="20" class="float-right inline mr-1" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                </div>
+                <div class="filteritem border-black-top text-left pl-1">
+                    <h6 class="inline">h</h6>
+                    <svg xmlns="http://www.w3.org/2000/svg" tabindex="0" width="20" height="20" class="float-right inline mr-1" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <div class="w-fill text-center">
+                <div class="courseId mt-2">
+                    <!-- Input for course by ID -->
+                    <h6 class="inline">Course ID:</h6>
+                    <input class="inline" type="text" id="courseId">
+                </div>
+            </div>
+            <div class="row justify-content-md-center pt-5 ml-auto mr-auto" id="cardRow">
+                <div class="card ml-1 mr-1">
+                    <div class="card-body">
+                      <h4 class="card-title">Discrete Math</h4>
+                      <h5 class="card-subtitle text-muted">Requirements:</h5>
+                      N/A
+                      <hr>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="card ml-1 mr-1">
+                    <div class="card-body">
+                      <h4 class="card-title">Discrete Math</h4>
+                      <h5 class="card-subtitle text-muted">Requirements:</h5>
+                      N/A
+                      <hr>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="card ml-1 mr-1">
+                    <div class="card-body">
+                      <h4 class="card-title">Discrete Math</h4>
+                      <h5 class="card-subtitle text-muted">Requirements:</h5>
+                      N/A
+                      <hr>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </div>
             </div>
         </div>
     </div>

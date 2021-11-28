@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/globals.css">
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -15,24 +16,39 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <div class="popupContainer">
+        <div class="popupContent">
+            <div class="popupClassTitle">
+                <h1>Discrete Math</h1>
+            </div>
+            <div class="popupSubtitle text-muted">
+                Computer Science
+            </div>
+
+            <div class="popupCourseDescription">
+                <p>
+                    This tutorial is a two-semester seminar that meets weekly as partial fulfillment of an Art Thesis. The tutorial is structured to support student progress and includes rotating student critiques, artist presentations, exhibition planning and execution, and professional development. Content includes; group discussions & critiques of student artwork, planning and execution of exhibitions, peer reviews of thesis drafts, the development of an artist statement in conjunction with presented artwork, drafting a CV, and the creation of a website. Full Term Course.
+                </p>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <img src="./assets/banner.png" class="banner" alt="New College of Florida">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
+            aria-expanded="false" aria-label="Toggle navigation">Options</button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Class Schedule<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="classes.html">Course Listing<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="evaluations.html">Evaluations</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://myncf.ncf.edu">NCF Portal</a>
                 </li>
             </ul>
         </div>
@@ -50,43 +66,77 @@
               </select>
             </div>
             <hr class="mt-1 mb-1s">
-            <div class="col-sm text-center">
+            <div class="col-sm text-center mt-1">
                 apple
             </div>
-            <div class="col-sm text-center">
-                bees
+            <div class="col-sm text-center mt-1">
+                <p>Contract Type: <span class="text-muted">3/4</span></p>
             </div>
         </div>
         <hr class="my-2 mt-2 mb-4">
     </div>
     <div class="container-fluid">
         <div class="row justify-content-md-center" id="cardRow">
-            <div class="card ml-1 mr-1">
-              <div class="card-body">
-                <h4 class="card-title">Discrete Math</h4>
-                <h6 class="card-subtitle text-muted">Computer Science</h6>
-              </div>
-              <div class="card-body">
-                <p class="card-text">Text</p>
-                <div class="row ml-auto mr-auto">
-                    <a href="#" class="card-link">Link 1</a>
-                    <a href="#" class="card-link">Link 2</a>
-                </div>
-              </div>
-            </div>
-            <div class="card ml-1 mr-1">
-                <div class="card-body">
-                  <h4 class="card-title">Discrete Math</h4>
-                  <h6 class="card-subtitle text-muted">Computer Science</h6>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Text</p>
-                  <div class="row ml-auto mr-auto">
-                      <a href="#" class="card-link">Link 1</a>
-                      <a href="#" class="card-link">Link 2</a>
-                  </div>
-                </div>
-            </div>
+                    <div class="card ml-1 mr-1">
+                        <div class="card-body">
+                            <h4 class="card-title">Discrete Math</h4>
+                            <h5 class="card-subtitle text-muted">Computer Science</h5>
+                            <div class="jumbotron-fluid pt-3 pl-1">
+                                <h6 class="card-subtitle underline inline">CRN:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">334123</span>
+                                <br>
+                                <h6 class="card-subtitle underline inline">Designation:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">SAT</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div href="#" class="row ml-auto mr-auto">
+                                <a href="#" class="card-link ml-auto mr-auto">View Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ml-1 mr-1">
+                        <div class="card-body">
+                            <h4 class="card-title">Discrete Math</h4>
+                            <h5 class="card-subtitle text-muted">Computer Science</h5>
+                            <div class="jumbotron-fluid pt-3 pl-1">
+                                <h6 class="card-subtitle underline inline">CRN:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">334123</span>
+                                <br>
+                                <h6 class="card-subtitle underline inline">Designation:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">SAT</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div href="#" class="row ml-auto mr-auto">
+                                <a href="#" class="card-link ml-auto mr-auto">View Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card ml-1 mr-1">
+                        <div class="card-body">
+                            <h4 class="card-title">Discrete Math</h4>
+                            <h5 class="card-subtitle text-muted">Computer Science</h5>
+                            <div class="jumbotron-fluid pt-3 pl-1">
+                                <h6 class="card-subtitle underline inline">CRN:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">334123</span>
+                                <br>
+                                <h6 class="card-subtitle underline inline">Designation:</h6>
+                                <span>&nbsp;</span>
+                                <span class="text-muted">SAT</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div href="#" class="row ml-auto mr-auto">
+                                <a href="#" class="card-link ml-auto mr-auto">View Info</a>
+                            </div>
+                        </div>
+                    </div>
         </div>
     </div>
     <div class="container-fluid text-center">

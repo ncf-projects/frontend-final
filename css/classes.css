@@ -1,0 +1,90 @@
+.operationRow {
+    /* background-color: pink; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: fit-content;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+#startTime, #endTime  {
+    width: 20%;
+}
+
+.checkbox {
+    width: 12px;
+    height: 12px;
+}
+
+.radioContainer {
+    display: inline-block;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.selectionContainer {
+    /* width: 20.0%; */
+    width: 33.3%;
+    min-width: 300px;
+}
+
+.filterContainer {
+    /* width: 40%; */
+}
+
+/* For the autocomplete hell */
+.autocomplete {
+    position: relative;
+}
+
+#searchInput {
+    border: 1px solid transparent;
+    /* padding: 5px; */
+    width: 90%;
+}
+
+.autocompleteMenu div:hover {
+    background-color: blue;
+}
+
+.autocomplete-active {
+    background-color: blue !important;
+    color: white;
+}
+
+.card {
+    max-width: 300px;
+}
+
+.autocompleteElements {
+    background-color: white;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.selectionContainer {
+    /* Black Border */
+    border: 1px solid black;
+}
+
+svg:hover {
+    /* Change the color */
+    fill: red;
+}
+
+svg:focus {
+    /* Change the color */
+    fill: red;
+}
+
+.mainContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
