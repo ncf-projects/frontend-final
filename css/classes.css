@@ -87,6 +87,7 @@ svg:focus {
     margin-right: auto;
     width: 90%;
     background-color: rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
 }
 
 .searchElement {
@@ -99,4 +100,6 @@ svg:focus {
 
 .searchElement > p {
     margin-bottom: 0px;
+=======
+>>>>>>> e86b13b1f52f986c0c5ca6cdcaee320e3ec74837
 }

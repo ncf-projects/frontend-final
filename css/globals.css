@@ -64,10 +64,16 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+<<<<<<< HEAD
     width: 80%;
     height: fit-content;
     border-radius: 5px;
     padding-bottom: 2%;
+=======
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+>>>>>>> e86b13b1f52f986c0c5ca6cdcaee320e3ec74837
 }
 
 .popupClassTitle {
@@ -87,9 +93,12 @@ nav {
     font-size: 16px;
     text-align: center;
     padding-top: 10px;
+<<<<<<< HEAD
     padding: 10px;
 }
 
 .card {
     border-radius: 15px;
+=======
+>>>>>>> e86b13b1f52f986c0c5ca6cdcaee320e3ec74837
 }
