@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/evaluations.css">
-    
+    <link rel="stylesheet" href="css/globals.css">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -16,40 +17,38 @@
     <title>Course Evaluations</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <img src="./assets/banner.png" class="banner" alt="New College of Florida">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
+            aria-expanded="false" aria-label="Toggle navigation">Options</button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Class Schedule</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="classes.html">Course Listing</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="evaluations.html">Evaluations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://myncf.ncf.edu">NCF Portal</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="jumbotron-fluid mt-5">
+    <div class="jumbotron-fluid mt-5 mb-5">
         <div class="container">
             <h1 class="display-3">Contract Evaluations</h1>
-            <!-- <p class="lead ml-4">Fall 2021</p> -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle ml-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="semesterDropdownButton"> Dropdown</button>
+            <div class="dropdown mb-3">
+                <button class="btn btn-secondary dropdown-toggle ml-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="semesterDropdownButton">Fall 2021</button>
                 <div class="dropdown-menu" aria-labelledby="semesterDropdownButton" id="semesterDropdown">
                     <a class="dropdown-item">Fall 2021</a>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container mb-5">
             <div class="text-center">
                 <h2>Frontend Web Design & Development</h2>
             </div>
@@ -60,6 +59,62 @@
                 </div>
                 <div class="col-sm-6 text-center">
                     <h6 class="card-subtitle">Instructor: <span class="text-muted evalAttribute">Tania Roy</span></h6>
+                    <h6 class="card-subtitle">Registration: <span class="text-muted evalAttribute">Registered</span></h6>
+                </div>
+            </div>
+            <div class="fa-pull-left card-subtitle pt-3">
+                External Evaluation:
+            </div>
+            <div class="evaluationBody text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div class="fa-pull-left card-subtitle pt-3">
+                Internal Evaluation:
+            </div>
+            <div class="evaluationBody text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="container mb-5">
+            <hr>
+            <div class="text-center">
+                <h2>Object Oriented Design</h2>
+            </div>
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+                    <h6 class="card-subtitle">Division: <span class="text-muted evalAttribute">Natural Science</span></h6>
+                    <h6 class="card-subtitle">Session: <span class="text-muted evalAttribute">Full Term</span></h6>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h6 class="card-subtitle">Instructor: <span class="text-muted evalAttribute">Fahmida Hamid</span></h6>
+                    <h6 class="card-subtitle">Registration: <span class="text-muted evalAttribute">Registered</span></h6>
+                </div>
+            </div>
+            <div class="fa-pull-left card-subtitle pt-3">
+                External Evaluation:
+            </div>
+            <div class="evaluationBody text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div class="fa-pull-left card-subtitle pt-3">
+                Internal Evaluation:
+            </div>
+            <div class="evaluationBody text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="container mb-5">
+            <hr>
+            <div class="text-center">
+                <h2>Databases for Backend</h2>
+            </div>
+            <div class="row pt-3">
+                <div class="col-sm-6 text-center">
+                    <h6 class="card-subtitle">Division: <span class="text-muted evalAttribute">Natural Science</span></h6>
+                    <h6 class="card-subtitle">Session: <span class="text-muted evalAttribute">Full Term</span></h6>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h6 class="card-subtitle">Instructor: <span class="text-muted evalAttribute">Matthew Lepinski</span></h6>
                     <h6 class="card-subtitle">Registration: <span class="text-muted evalAttribute">Registered</span></h6>
                 </div>
             </div>

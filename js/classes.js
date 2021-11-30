@@ -50,93 +50,143 @@ const classes = [
     }
 ]
 
-function createCard(className, classCategory, crn, currentDesignation) {
-    return (`
-    <div class="card ml-1 mr-1">
-        <div class="card-body">
-            <h4 class="card-title text-wrap">${className}</h4>
-            <h5 class="card-subtitle text-muted">${classCategory}</h5>
-            <div class="jumbotron-fluid pt-3 pl-1">
-                <h6 class="card-subtitle underline inline">CRN:</h6>
-                <span>&nbsp;</span>
-                <span class="text-muted">${crn}</span>
-                <br>
-                <h6 class="card-subtitle underline inline">Designation:</h6>
-                <span>&nbsp;</span>
-                <span class="text-muted">${currentDesignation}</span>
-            </div>
-        </div>
-        <div class="card-body">
-            <div href="#" class="row ml-auto mr-auto">
-                <a href="#" class="card-link ml-auto mr-auto">View Info</a>
-            </div>
-        </div>
-    </div>
-    `);
-}
-
-function createPopup(title, subtitle, text) {
-    const elem = document.createElement("div");
-    elem.innerHTML = `
-    <div class="popupContainer">
-        <div class="popupContent">
-            <div class="popupClassTitle">
-                <h1>${title}</h1>
-            </div>
-            <div class="popupSubtitle text-muted">
-                ${subtitle}
-            </div>
-
-            <div class="popupCourseDescription">
-                <p>
-                    ${text}
-                </p>
-            </div>
-        </div>
-    </div>
-    `;
-    document.body.insertAdjacentElement("beforebegin", elem);
-}
 
 window.addEventListener("load", () => {
+    document.querySelector("#searchInput").onkeydown = searchbarUpdate;
+})
+
+function addFilter(name) {
+    const container = document.getElementsByClassName("selectionContainer overflow-hidden pt-3 text-center").item(0);
+
+    container.insertAdjacentHTML("beforeend", `
+    <div class="filteritem border-black-top text-left pl-1">
+        <h6 class="inline">${name}</h6>
+        <svg xmlns="http://www.w3.org/2000/svg" tabindex="0" width="20" height="20" class="float-right inline mr-1" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+    </div>`)
+
+    document.getElementById("searchInput").value = "";
+    refreshCards();
+}
+
+function createCard(title, description, days, requirements = "N/A") {
     const cardRow = document.getElementById("cardRow");
-    // Get 4 random classes
-    const selectedClasses = classes.sort(() => Math.random() - 0.5).slice(0, 4);
 
-    for (const classObj of selectedClasses) {
-        const card = createCard(
-            classObj.title,
-            classObj.subject,
-            classObj.id,
-            "SAT"
-        );
-        cardRow.insertAdjacentHTML("beforeend", card);
+    cardRow.insertAdjacentHTML("afterbegin", `
+    <div class="card ml-1 mr-1">
+        <div class="card-body">
+        <h4 class="card-title">${title}</h4>
+        <h5 class="card-subtitle text-muted inline">Requirements:&nbsp;</h5><p class="inline">N/A</p>
+        <br>
+        <h5 class="card-subtitle text-muted inline">Days:&nbsp;</h5><p class="inline">${days}</p>
+        <hr>
+        ${description}
+        </div>
+    </div>
+    `)
+}
+
+function searchbarUpdate(evnt) {
+    const alph = "abcdefghijklmnopqrstuvwxyz -";
+    if (!alph.toUpperCase().split("").join(alph.split("")).includes(evnt.key)) return;
+
+    const value = document.querySelector("#searchInput").value + evnt.key;
+    const options = [];
+    let constructedDropdown = "";
+
+    for (const classObj of classes) {
+        if (classObj.title.startsWith(value)) {
+            constructedDropdown += `
+            <div class="searchElement" tabindex="0">
+                <p>${classObj.title} -- Title</p>
+            </div>
+            `
+        }
+
+        if (classObj.subject.startsWith(value)) {
+            if (!constructedDropdown.includes(classObj.subject)) {
+                constructedDropdown += `
+                <div class="searchElement" tabindex="0">
+                    <p>${classObj.subject} -- Subject</p>
+                </div>`
+            }
+        }
+    }
+
+    document.getElementsByClassName("autocompleteElements").item(0).innerHTML = constructedDropdown;
+}
+
+function refreshCards() {
+
+    // Get all the checkbox information
+    const opts = "MTWRFSU".split("");
+    const selected = [];
+    const index = 0;
+    for (const buttonHolder of Array.from(document.getElementsByClassName("radioContainer").item(0))) {
+        const button = buttonHolder.children.item(1);
+        if (button.checked) {
+            selected.push(opts[index]);
+        }
+        index++;
+    }
+
+    console.log(selected);
+
+    const cardRow = document.getElementById("cardRow");
+    cardRow.innerHTML = "";
+
+    const container = document.getElementsByClassName("selectionContainer overflow-hidden pt-3 text-center").item(0);
+    const elems = Array.from(container.children).filter((x) => x.tagName == "DIV");
+
+    const subjects = [];
+    const titles = [];
+
+    for (const _filterLine of elems) {
+        const filterLine = _filterLine.innerText;
+        const parts = filterLine.split(" -- ");
+        if (parts[1] == "Subject") {
+            subjects.push(parts[0]);
+        } else if (parts[1] == "Title") {
+            titles.push(parts[0]);
+        }
+    } 
+
+    for (const classObj of classes) {
+        if (subjects.includes(classObj.subject) || titles.includes(classObj.title)) {
+            const classDays = classObj.days.split("");
+            const days = [];
+            for (const day of classDays) {
+                if (selected.includes(day)) {
+                    days.push(day);
+                }
+            }
+            
+            if (days.length > 0 || selected.length == 0) {
+                createCard(
+                    classObj.title,
+                    classObj.description.length > 100 ?  classObj.description.substring(0, 100) + "..." : classObj.description, classObj.days
+                );
+            }
+        }
+    }
+}
+
+// For adding a new filter
+window.addEventListener("click", (event) => {
+    const src = event.target;
+    const parent = src.parentElement;
+    if (parent.className == "searchElement") {
+        addFilter(src.innerText);
+        document.getElementById("searchInput").value = "";
     }
 })
 
-window.addEventListener("click", () => {
-    const popups = document.getElementsByClassName("popupContainer");
-    for (const popup of popups) {
-        popup.remove();
+// For removing a filter
+window.addEventListener("click", (event) => {
+    const src = event.target;
+    const parent = src.parentElement;
+    const parentParent = parent.parentElement;
+    if (parentParent.className.includes("filteritem")) {
+        parentParent.remove();
     }
-})
-
-window.addEventListener("click", (elem) => {
-    if (elem.target.className.includes("card-link")) {
-        if (document.getElementsByClassName("popupContainer").length > 0) return;
-        const card = elem.target.parentElement.parentElement.parentElement;
-        const cardBody = card.children.item(0);
-
-        const title = cardBody.children.item(0).innerText;
-        const subject = cardBody.children.item(1).innerText;
-        const id = cardBody.children.item(2).children.item(2).innerText;
-
-        const x = classes.find((classObj) => classObj.id === id);
-        const description = x.description;
-
-        createPopup(title, subject, description);
-        // createPopup(title, subject, "aaa")
-    } else {
-        console.log(elem.target.className)
-    }
+    refreshCards();
 })

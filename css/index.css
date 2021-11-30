@@ -16,3 +16,25 @@
 iframe {
     overflow-x: auto;
 }
+
+.underline {
+    text-decoration: underline;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title {
+    max-width: 300px;
+}
+/* 
+.card-body .card {
+    word-wrap: break-word;
+    min-width: 300px;
+} */
