@@ -50,7 +50,16 @@ const classes = [
     }
 ]
 
-function createCard(className, classCategory, crn, currentDesignation) {
+/**
+ * Generates the html body for a new card.
+ * @param {string} className The name of the class
+ * @param {string} classCategory The category or subject
+ * @param {string|number} crn The course registration number
+ * @param {string} currentDesignation Sat/Unsat
+ * @param {string} days The days the class is
+ * @returns {string} The HTML for the card
+ */
+function createCard(className, classCategory, crn, currentDesignation, days) {
     return (`
     <div class="card ml-1 mr-1">
         <div class="card-body">
@@ -64,6 +73,10 @@ function createCard(className, classCategory, crn, currentDesignation) {
                 <h6 class="card-subtitle underline inline">Designation:</h6>
                 <span>&nbsp;</span>
                 <span class="text-muted">${currentDesignation}</span>
+                <br>
+                <h6 class="card-subtitle underline inline">Days:</h6>
+                <span>&nbsp;</span>
+                <span class="text-muted">${days}</span>
             </div>
         </div>
         <div class="card-body">
@@ -75,6 +88,12 @@ function createCard(className, classCategory, crn, currentDesignation) {
     `);
 }
 
+/**
+ * 
+ * @param {string} title The title for the popup
+ * @param {string} subtitle The subtitle
+ * @param {string} text The body text the popup should have
+ */
 function createPopup(title, subtitle, text) {
     const elem = document.createElement("div");
     elem.innerHTML = `
@@ -103,24 +122,28 @@ window.addEventListener("load", () => {
     // Get 4 random classes
     const selectedClasses = classes.sort(() => Math.random() - 0.5).slice(0, 4);
 
+    // Create 4 random cards
     for (const classObj of selectedClasses) {
         const card = createCard(
             classObj.title,
             classObj.subject,
             classObj.id,
-            "SAT"
+            "SAT",
+            classObj.days
         );
         cardRow.insertAdjacentHTML("beforeend", card);
     }
 })
 
 window.addEventListener("click", () => {
+    // Make it so if you click when a popup is open, it closes
     const popups = document.getElementsByClassName("popupContainer");
     for (const popup of popups) {
         popup.remove();
     }
 })
 
+// See if 'view info' link is clicked. If it is, create a popup.
 window.addEventListener("click", (elem) => {
     if (elem.target.className.includes("card-link")) {
         if (document.getElementsByClassName("popupContainer").length > 0) return;
@@ -138,5 +161,27 @@ window.addEventListener("click", (elem) => {
         // createPopup(title, subject, "aaa")
     } else {
         console.log(elem.target.className)
+    }
+})
+
+// Populate the calander with current dates.
+window.addEventListener("load", () => {
+    const calendar = document.getElementById("calendar");
+    const now = new Date();
+    const month = now.getUTCMonth() + 1;
+    const currentDay = now.getUTCDate();
+    const year = now.getUTCFullYear();
+    const maxDays = new Date(year, month, 0).getDate();
+
+    const to = Math.abs(maxDays - 35) + 1;
+    let x = 1;
+
+    for (; x < maxDays; x++) {
+        const day = x.toString().length == 1 ? "0" + x : x;
+        if (x == currentDay) {
+            calendar.innerHTML += `<div class="calItem calCurrent">${day}</div>`
+        } else {
+            calendar.innerHTML += `<div class="calItem">${day}</div>`
+        }
     }
 })

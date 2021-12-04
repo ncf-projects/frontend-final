@@ -17,6 +17,7 @@
     <title>Class Listing</title>
 </head>
 <body>
+    <!-- The Nav Bar -->
     <nav class="navbar navbar-expand-sm navbar-dark">
         <img src="./assets/banner.png" class="banner" alt="New College of Florida">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -38,8 +39,13 @@
             </ul>
         </div>
     </nav>
+
+    <!-- The main body for the classes -->
     <div class="mainContainer pt-5 mt-5 pb-5">
+
+        <!-- All the three different containers are split into a row, taking up 33% of vw -->
         <div class="row operationRow d-flex justify-content-center">
+            <!-- The Day & Time Filters -->
             <div class="selectionContainer text-center pt-3">
                 <div class="input">
                     <h6 class="inline">Start Time:</h6>
@@ -49,6 +55,7 @@
                     <h6 class="inline">End Time:</h6>
                     <input class="inline" id="endTime">
                 </div>
+                <!-- The day radio buttons -->
                 <div class="input">
                     <div class="w-fill text-center">
                         <h6>Days:</h6>
@@ -92,6 +99,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- The filter bar -->
             <div class="selectionContainer filterContainer pb-3 pt-3 text-center">
                 <h2>Filter:</h2>
 
@@ -100,12 +109,13 @@
                     <div class="autocomplete w-fill">
                         <input id="searchInput" type="text" name="courses" placeholder="Search Courses">
                         <div class="autocompleteElements">
-                            <!-- Auto populated -->
+                            <!-- Auto populated via JS once typing starts -->
                         </div>
                     </div>
                 </form>
             </div>
 
+            <!-- Where filters go, with an X to remove them. -->
             <div class="selectionContainer overflow-hidden pt-3 text-center">
                 <h4>Selected Filters:</h4>
                 <!-- Auto Populated -->

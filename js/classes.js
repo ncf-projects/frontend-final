@@ -1,3 +1,4 @@
+// Just a short list of classes and descriptions..
 const classes = [
     {
         "title": "Historical Archaeology of Latin America",
@@ -19,13 +20,6 @@ const classes = [
         "subject": "art",
         "description": "This tutorial is a two-semester seminar that meets weekly as partial fulfillment of an Art Thesis. The tutorial is structured to support student progress and includes rotating student critiques, artist presentations, exhibition planning and execution, and professional development. Content includes; group discussions & critiques of student artwork, planning and execution of exhibitions, peer reviews of thesis drafts, the development of an artist statement in conjunction with presented artwork, drafting a CV, and the creation of a website. Full Term Course.",
         "days": "TR"
-    },
-    {
-        "title": "Art and Gender",
-        "id": "23622",
-        "subject": "art",
-        "description": "What role does gender play in works of art? How does art shape our perception of gender? In this course we’ll explore the interaction of gender and art through a set of key artists, movements, and moments in a period ranging from the 18th Century to the contemporary period. Topics covered include, but are not limited to: barriers to women’s participation in the art world; the role of masculinity in conceptions of the artist and artistic creation; artistic subversions of traditional gender roles; the gendering of visual concepts/structures like the gaze; and the intersection of gender with other categories of identity such as race and class. If the size of the class permits it, students will also engage more directly with these issues by role-playing and reenacting the complex power dynamics of the 1980s New York City art world, a context that inspired the biting humor and critical interventions of the activist collective known as the Guerrilla Girls. Full Term Course.",
-        "days": "MU"
     },
     {
         "title": "Art and Gender",
@@ -51,10 +45,15 @@ const classes = [
 ]
 
 
+// Binds the keydown event to searchbarupdate
 window.addEventListener("load", () => {
     document.querySelector("#searchInput").onkeydown = searchbarUpdate;
 })
 
+/**
+ * Adds a filter to the grid of filter options.
+ * @param {string} name Adds a new element to the dropdown
+ */
 function addFilter(name) {
     const container = document.getElementsByClassName("selectionContainer overflow-hidden pt-3 text-center").item(0);
 
@@ -68,7 +67,15 @@ function addFilter(name) {
     refreshCards();
 }
 
-function createCard(title, description, days, requirements = "N/A") {
+/**
+ * Appends a new card to the class listing.
+ * @param {string} title The title of the card
+ * @param {string} description The body it should have
+ * @param {string} days What days the class is
+ * @param {string|number} courseId The unique ID for the cource
+ * @param {string} requirements Other required classes
+ */
+function createCard(title, description, days, courseId, requirements = "N/A") {
     const cardRow = document.getElementById("cardRow");
 
     cardRow.insertAdjacentHTML("afterbegin", `
@@ -81,10 +88,16 @@ function createCard(title, description, days, requirements = "N/A") {
         <hr>
         ${description}
         </div>
+        <h6 class="text-muted inline ml-auto mr-auto">Course ID:&nbsp;<span>${courseId}</span></h6>
     </div>
     `)
 }
 
+/**
+ * Fires whenever a new characer is added, running the search against existing objects again.
+ * @param {InputEvent} evnt The event 
+ * @returns 
+ */
 function searchbarUpdate(evnt) {
     const alph = "abcdefghijklmnopqrstuvwxyz -";
     if (!alph.toUpperCase().split("").join(alph.split("")).includes(evnt.key)) return;
@@ -115,6 +128,9 @@ function searchbarUpdate(evnt) {
     document.getElementsByClassName("autocompleteElements").item(0).innerHTML = constructedDropdown;
 }
 
+/**
+ * This just refreshes the entire card list.
+ */
 function refreshCards() {
 
     // Get all the checkbox information
@@ -129,8 +145,6 @@ function refreshCards() {
         index++;
     }
 
-    console.log(selected);
-
     const cardRow = document.getElementById("cardRow");
     cardRow.innerHTML = "";
 
@@ -140,6 +154,7 @@ function refreshCards() {
     const subjects = [];
     const titles = [];
 
+    // Filter by elements inside the card
     for (const _filterLine of elems) {
         const filterLine = _filterLine.innerText;
         const parts = filterLine.split(" -- ");
@@ -163,30 +178,61 @@ function refreshCards() {
             if (days.length > 0 || selected.length == 0) {
                 createCard(
                     classObj.title,
-                    classObj.description.length > 100 ?  classObj.description.substring(0, 100) + "..." : classObj.description, classObj.days
+                    classObj.description.length > 100 ?  classObj.description.substring(0, 100) + "..." : classObj.description,
+                    classObj.days,
+                    classObj.id
                 );
             }
         }
     }
 }
 
-// For adding a new filter
+
+/**
+ * For adding a new filter
+ */
 window.addEventListener("click", (event) => {
     const src = event.target;
     const parent = src.parentElement;
     if (parent.className == "searchElement") {
         addFilter(src.innerText);
         document.getElementById("searchInput").value = "";
+        document.getElementsByClassName("autocompleteElements").item(0).innerHTML = "";
     }
 })
 
-// For removing a filter
+/**
+ * For removing a filter
+ */
 window.addEventListener("click", (event) => {
     const src = event.target;
     const parent = src.parentElement;
     const parentParent = parent.parentElement;
     if (parentParent.className.includes("filteritem")) {
         parentParent.remove();
+        refreshCards();
     }
-    refreshCards();
+})
+
+window.addEventListener("load", (_event) => {
+
+    /**
+     * To make the ID listing work
+     */
+    document.querySelector("#courseId").onkeydown = (evnt) => {
+        if (evnt.key == "Enter") {
+            const courseId = document.querySelector("#courseId").value;
+            const classObj = classes.find((x) => x.id == courseId);
+            if (classObj) {
+                console.log(classObj);
+                refreshCards();
+                createCard(
+                    classObj.title,
+                    classObj.description.length > 100 ?  classObj.description.substring(0, 100) + "..." : classObj.description,
+                    classObj.days,
+                    classObj.id
+                );
+            }
+        }
+    }
 })

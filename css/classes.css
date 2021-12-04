@@ -1,14 +1,16 @@
+/* To fix styling issues with the jumbotron having left-aligned text */
+.jumbotron {
+    text-align: center;
+}
+
+/* The row that contains the filters, centering it. */
 .operationRow {
-    /* background-color: pink; */
     margin-left: auto;
     margin-right: auto;
     width: 90%;
     height: fit-content;
 }
 
-.jumbotron {
-    text-align: center;
-}
 
 #startTime, #endTime  {
     width: 20%;
@@ -31,10 +33,6 @@
     min-width: 300px;
 }
 
-.filterContainer {
-    /* width: 40%; */
-}
-
 /* For the autocomplete hell */
 .autocomplete {
     position: relative;
@@ -42,7 +40,6 @@
 
 #searchInput {
     border: 1px solid transparent;
-    /* padding: 5px; */
     width: 90%;
 }
 
@@ -72,6 +69,7 @@
     border: 1px solid black;
 }
 
+/* These are to handle hovering over the X's in the filter-removal section. */
 svg:hover {
     /* Change the color */
     fill: red;

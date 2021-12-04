@@ -16,22 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div class="popupContainer">
-        <div class="popupContent">
-            <div class="popupClassTitle">
-                <h1>Discrete Math</h1>
-            </div>
-            <div class="popupSubtitle text-muted">
-                Computer Science
-            </div>
-
-            <div class="popupCourseDescription">
-                <p>
-                    This tutorial is a two-semester seminar that meets weekly as partial fulfillment of an Art Thesis. The tutorial is structured to support student progress and includes rotating student critiques, artist presentations, exhibition planning and execution, and professional development. Content includes; group discussions & critiques of student artwork, planning and execution of exhibitions, peer reviews of thesis drafts, the development of an artist statement in conjunction with presented artwork, drafting a CV, and the creation of a website. Full Term Course.
-                </p>
-            </div>
-        </div>
-    </div> -->
+    <!-- The Nav-Bar code -->
     <nav class="navbar navbar-expand-sm navbar-dark">
         <img src="./assets/banner.png" class="banner" alt="New College of Florida">
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -53,10 +38,14 @@
             </ul>
         </div>
     </nav>
+    <!-- 
+        Container with row for the term & contract type.
+        Middle row is set to 33% as well even though it's empty to make
+        things align on left and right.
+    -->
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="form-group col-sm pt-0">
-              <!-- <label for="termSelect"></label> -->
               <select class="form-control" name="termSelect" id="termSelector">
                 <option>Term: Spring 2022</option>
                 <option>Term: Fall 2021</option>
@@ -77,12 +66,21 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-md-center" id="cardRow">
-                    
+                <!-- This in here is automatically populated when cards get added -->
         </div>
     </div>
     <div class="container-fluid text-center">
         <h2 class="mt-5 ml-1">Calender</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?src=endershusky11%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <!-- <iframe src="https://calendar.google.com/calendar/embed?src=endershusky11%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+        <div class="calendar" id="calendar">
+            <div class="calLabel">Mon</div>
+            <div class="calLabel">Tue</div>
+            <div class="calLabel">Wed</div>
+            <div class="calLabel">Thu</div>
+            <div class="calLabel">Fri</div>
+            <div class="calLabel">Sat</div>
+            <!-- The rest of these days are added with JS dynamically -->
+        </div>
     </div>
 </body>
 </html>
