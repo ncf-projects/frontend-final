@@ -1,0 +1,5 @@
+This was used to design the layout for the calander
+https://grid.layoutit.com/
+
+Bootstrap was used pretty much everywhere
+https://getbootstrap.com/

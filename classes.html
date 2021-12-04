@@ -63,37 +63,37 @@
                             <div class="w-tight text-center text-short inline">
                                 M
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Monday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 T
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Tuesday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 W
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Wednesday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 R
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Thursday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 F
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Friday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 S
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Saturday Selection">
                             </div>
                             <div class="w-tight text-center text-short inline">
                                 U
                                 <br>
-                                <input class="checkbox" type="checkbox">
+                                <input class="checkbox" type="checkbox" aria-label="Sunday Selection">
                             </div>
                         </div>
                     </div>
@@ -105,9 +105,9 @@
                 <h2>Filter:</h2>
 
                 <!-- Custom searchbar with suggestions popup -->
-                <form autocomplete="off" action="/js/classesAutocomplete.js">
+                <form autocomplete="off"    >
                     <div class="autocomplete w-fill">
-                        <input id="searchInput" type="text" name="courses" placeholder="Search Courses">
+                        <input id="searchInput" type="text" name="courses" placeholder="Search Courses" aria-label="Search Courses">
                         <div class="autocompleteElements">
                             <!-- Auto populated via JS once typing starts -->
                         </div>
@@ -127,7 +127,7 @@
                 <div class="courseId mt-2">
                     <!-- Input for course by ID -->
                     <h6 class="inline">Course ID:</h6>
-                    <input class="inline" type="text" id="courseId">
+                    <input class="inline" type="text" id="courseId" aria-label="Search by Course ID">
                 </div>
             </div>
             <div class="row justify-content-md-center pt-5 ml-auto mr-auto" id="cardRow">

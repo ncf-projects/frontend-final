@@ -1,0 +1,44 @@
+Features To Implement:
+
+NCF Portal: Relevant Links
+State: Ignored
+I ended up not redoing the portal par request, as it wasn't really in scope of the project.
+
+Course List: Sort By Keyword
+State: Implemented
+You can start typing the name of a class or major in the search bar, and results will show up.
+Example, typing 'art' will show up all classes that have 'art' as their subject.
+
+Course List: Improved Dropdowns
+State: Implemented
+Instead of several different dropdowns, the site now has a single dropdown that shows all the options.
+
+Student Evaluation System: Top Nav-Bar
+State: Implemented
+There's now a top nav bar that spreads across all pages.
+
+Work Request: Add a way to submit a request anonymously
+State: Ignored
+This wasn't in the scope of the project, ended up not doing the Work Request site.
+
+Student Evaluation System: Overview
+State: Implemented
+The site now has a page that shows all of the evaluations for a given term.
+
+Course List: Class Grid View
+State: Implemented
+When searching for classes, the site utilizes a grid view for the results. Results will stack and to ocupy as much
+space as possible.
+
+Course List: Search Forums
+State: Implemented
+When searching for classes, the site will update and append/remove the results as you go.
+
+Course List: Buttons for class modifiers
+State: Implemented
+You can select radio buttons to see what dates you'd like to see classes for.
+
+Course List: Class Time Selection
+State: Unimplemented
+I didn't end up Implementing this because I had no easy way of collecting the times for each class, and
+the amount of JS this would take would've been overwhelming.
